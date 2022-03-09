@@ -1,0 +1,132 @@
+body{
+    background-color:rgb(199, 187, 255);
+}
+
+#button-container{
+    display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-auto-rows: minmax(60px, auto);
+	grid-gap: 5px;
+	max-width: 960px;
+	margin: 0 auto;
+    position:relative;  
+}
+
+.button{
+    border:2px solid rgb(111, 73, 248);
+    border-radius: 7px;;
+}
+
+#button-container #screen {
+    grid-column: 5/9;
+    grid-row:2/3;
+    border: 8px solid rgb(150, 121, 253);
+    background-color: rgb(233, 233, 233);
+    border-radius:10px;
+    height:75px;
+}
+
+/* top row */
+
+#button-container #clear{
+    grid-column: 5/6;
+    grid-row:3/4;
+}
+
+#button-container #exp{
+    grid-column: 6/7;
+    grid-row:3/4;
+}
+
+#button-container #percent{
+    grid-column: 7/8;
+    grid-row:3/4;
+}
+
+#button-container #divide{
+    grid-column: 8/9;
+    grid-row:3/4;
+}
+
+/* second row */
+
+#button-container #seven{
+    grid-column: 5/6;
+    grid-row:4/5;
+}
+
+#button-container #eight{
+    grid-column: 6/7;
+    grid-row:4/5;
+}
+
+#button-container #nine{
+    grid-column: 7/8;
+    grid-row:4/5;
+}
+
+#button-container #multiply{
+    grid-column: 8/9;
+    grid-row:4/5;
+}
+
+/* third row */
+
+#button-container #four{
+    grid-column: 5/6;
+    grid-row:5/6;
+}
+
+#button-container #five{
+    grid-column: 6/7;
+    grid-row:5/6;
+}
+
+#button-container #six{
+    grid-column: 7/8;
+    grid-row:5/6;
+}
+
+#button-container #plus{
+    grid-column: 8/9;
+    grid-row:5/6;
+}
+
+/* fourth row */
+
+#button-container #one{
+    grid-column: 5/6;
+    grid-row:6/7;
+}
+
+#button-container #two{
+    grid-column: 6/7;
+    grid-row:6/7;
+}
+
+#button-container #three{
+    grid-column: 7/8;
+    grid-row:6/7;
+}
+
+#button-container #minus{
+    grid-column: 8/9;
+    grid-row:6/7;
+}
+
+/* fifth row */
+
+#button-container #decimal{
+    grid-column: 5/6;
+    grid-row:7/8;
+}
+
+#button-container #zero{
+    grid-column: 6/7;
+    grid-row:7/8;
+}
+
+#button-container #equal{
+    grid-column: 7/9;
+    grid-row:7/8;
+}
