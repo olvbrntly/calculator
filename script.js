@@ -1,10 +1,18 @@
-// let one = document.querySelector('#one');
-// let screen = document.querySelector('#screen')
+let buttons = document.getElementsByClassName('buttons');
+let screen = document.getElementById('screen');
+let one = document.getElementById('one');
 
-// one.addEventListener(click, display);
+//doesnt quite work
+
+// for(let i=0; i < buttons.length; i++) {
+//     buttons[i].addEventListener('click', function () {
+//         screen.innerText += this.innerText;
+//     });
+// }
 
 
 
+//SEPERATE BUTTONS BY CATEGORIES! ie, NUM, OP, EQUAL etc.
 
 
 //functions
