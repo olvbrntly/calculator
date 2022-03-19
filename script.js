@@ -1,17 +1,24 @@
-//VARIABLES (GLOBAL)
-let firstOperand = '';
-let secondOperand = '';
+//VARIABLES (GLOBAL)-----------------------------------------
+let storedNumber = ''
+let num1 = '';
+let num2 = '';
+let chosenOperator = '';
+let choosingNumber = false;
+let currentNum = '';
+let result = '';
 
-//DOM---------------------------------------------------------
-let clearButton = document.getElementsByClassName('clear-button');
+
+//DOM ELEMENTS-------------------------------------------------
+let clearButton = document.querySelector('.clear-button');
 let decimalButton = document.getElementsByClassName('decimal-button');
-let equalButton = document.getElementsByClassName('equal-button');
-let numberButton = document.getElementsByClassName('number-button');
-let operatorButton = document.getElementsByClassName('operator-button');
+let equalButton = document.querySelector('.equal-button');
+let numberButton = document.querySelectorAll('.number');
+let operatorButton = document.querySelectorAll('.operator')
 let button = document.querySelectorAll('button');
-let screen = document.getElementById('screen');
+let display = document.getElementById('display');
+display.textContent = '';
+//BASIC MATH FUNCTIONS--------------------------------------
 
-//BASIC MATH FUNCTIONS----------------------------------------
 let calcAdd = (a,b) => a+b;
 let calcSubtract = (a,b) => a-b;
 let calcMultiply = (a,b) => a*b;
@@ -19,109 +26,133 @@ let calcDivide = (a,b) => a/b;
 let calcPercentage = (a) => a*(.01);
 let calcExponent = (a,b) => a**b;
 
-//OPERATE FUNCTION--------------------------------------------
-function operate(num1, num2, operator) {
+//OPERATE FUNCTION------------------------------------------
+
+// Create a new function operate that takes an operator and 2 numbers 
+// and then calls one of the above functions on the numbers.
+
+
+function operate(operator, num1, num2,) {
     switch (operator){
         case '+':
             return calcAdd(num1, num2);
-  
         case '-':
             return calcSubtract(num1,num2); 
-        
         case '*':
             return calcMultiply(num1, num2);
-  
-        case '/':
+        case '÷':
             return calcDivide(num1,num2);
-  
         case '%':
-            return calcPercentage(num1,num2);
-  
+            return calcPercentage(num1);
         case '**':
-            return calcExponent(num1,num2);
-          
+            return calcExponent(num1,num2);   
     }
-  }
+  };
 
-  function calculate() {
-     
-  }
+// Create the functions that populate the display when you click the 
+// number buttons…
 
-
-//EVENT LISTENERS--------------------------------------------
-for(let i = 0; i < button.length; i++) {
-    button[i].addEventListener('click', clicked);
- }
-
-// for(let i = 0; i < clearButton.length; i++) {
-//    clearButton[i].addEventListener('click', clicked);
-// }
-
-// for(let i = 0; i < decimalButton.length; i++) {
-//     decimalButton[i].addEventListener('click', clicked);
-// }
-
-// for(let i = 0; i < equalButton.length; i++) {
-//     equalButton[i].addEventListener('click', clicked);
-// }
-
-// for(let i = 0; i < numberButton.length; i++) {
-//     numberButton[i].addEventListener('click', clicked);
-// }
-
-// for(let i = 0; i < operatorButton.length; i++) {
-//     operatorButton[i].addEventListener('click', clicked);
-// }
-
-//CLICK FUNCTIONS---------------------------------------------
-function clicked(event) {
-    screen.textContent = event.target.textContent;
-    firstOperand = screen.textContent;
-    console.log(firstOperand);
-}
-
-
-
-
-// function calculate
-    //read which number user clicks
-    //display number on screen
-    //save that number
+numberButton.forEach((number)=>{
+    number.addEventListener('click', function(){
+       if(num1 === ''){
+        num1 += number.textContent;
+        display.textContent = num1;
+        console.log('num1: ' + num1);   
+    }else {
+        num2 += number.textContent;
+        display.textContent = num2;
+        console.log('num2:' + num2);
+    }
+    })
     
-    //if user clicks an operator
-    //when user clicks operate read which operator
-    //display operator
+});
 
-    //read which number user clicks //SECOND NUMBER
-    //display number on screen
-    //save that number
+operatorButton.forEach((operator)=>{
+    operator.addEventListener('click', function(){
+        choosingNumber = false;
+        chosenOperator = operator.textContent;
+        display.textContent += chosenOperator
+        console.log(chosenOperator);
+    })
+    return chosenOperator;
+});
 
-    //if equal is clicked 
-    //operate using correct function 
-    //save result
-    //display result
+function calculate() {
+    num1 = Number(num1);
+    num2 = Number(num2);
+    let result = operate(chosenOperator, num1, num2);
+    display.textContent = result;
+    num1 = result;
+    num2 ='';
+    console.log(result);
+    
+};
 
-    //if user clicks clear, erase all data
+function clear() {
+    num1 = "";
+    num2 = "";
+    chosenOperator = "";
+    display.textContent = "";
 
-    //solves in order entered not PEMDAS
-
-
-
-// function equal() {
-
-
-// }
-
-// function clear() {
-
-
-// }
+};
 
 
-//doesnt quite work
 
-// for(let i=0; i < buttons.length; i++) {
-//     buttons[i].addEventListener('click', function () {
-//         screen.innerText += this.innerText;
-//     });
-// }
+equalButton.addEventListener('click', calculate);
+
+clearButton.addEventListener('click', clear);
+
+
+
+
+
+
+
+
+
+
+//you should be storing the ‘display value’ in a variable 
+// somewhere for use in the next step.
+
+
+
+
+
+
+
+
+
+// Make the calculator work! You’ll need to store the first number that is 
+// input into the calculator when a user presses an operator, and also save 
+// which operation has been chosen and then operate() on them when the user 
+// presses the “=” key.
+// You should already have the code that can populate the display, so once 
+// operate() has been called, update the display with the ‘solution’ to the 
+// operation.
+// This is the hardest part of the project. You need to figure out how to
+//  store all the values and call the operate function with them. Don’t 
+//  feel bad if it takes you a while to figure out the logic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
