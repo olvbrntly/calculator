@@ -37,7 +37,7 @@ function operate(operator, num1, num2,) {
         case '*':
             return calcMultiply(num1, num2);
         case '/':
-            if(num2===0) return null;
+            if(num2===0) return display.textContent = "lol no";
             else return calcDivide(num1,num2);
         case '%':
             return calcPercentage(num1);
@@ -83,7 +83,7 @@ operatorButton.forEach((operator)=>{
 function calculate() {
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
-    let result = operate(chosenOperator, num1, num2)
+    let result = roundResult(operate(chosenOperator, num1, num2));
     display.textContent =result
     num1 = result;
     num2 ='';
@@ -102,3 +102,8 @@ function clear() {
     chosenOperator = "";
     display.textContent = "";
 };
+
+function roundResult(number) {
+    return Math.round(number * 10000) / 10000
+  }
+  
